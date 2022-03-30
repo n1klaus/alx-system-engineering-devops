@@ -9,3 +9,4 @@ i-listit 	            - Display the contents list of your current directory
 8-firstdelete		    - Delete the file betty from /tmp/my_first_directory/
 9-firstdirdeletion	    - Delete the directory my_first_directory
 10-back			    - Changes the working directory to the previous one
+11-lists		    - Lists all files in the current directory, the parent of the working directory and the /boot directory in long format.
