@@ -1,1 +1,1 @@
-0-current_working_directory.sh - prints current working directory
+0-current_working_directory - prints current working directory
