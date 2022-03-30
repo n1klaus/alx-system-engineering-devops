@@ -1,6 +1,5 @@
-\n\n
-0-current_working_directory - Prints the absolute path name of the current working directory\n
-i-listit 	            - Display the contents list of your current directory\n
+0-current_working_directory - Prints the absolute path name of the current working directory\
+i-listit 	            - Display the contents list of your current directory\
 2-bring_me_home		    - Changes the working directory to the user’s home directory\n
 3-listfiles		    - Display current directory contents in a long format\n
 4-listmorefiles		    - Display current directory contents, including hidden files using the long format\n
