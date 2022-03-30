@@ -8,3 +8,4 @@ i-listit 	            - Display the contents list of your current directory
 7-movethatfile		    - Move file betty from /tmp/ directory to /tmp/my_first_directory/
 8-firstdelete		    - Delete the file betty from /tmp/my_first_directory/
 9-firstdirdeletion	    - Delete the directory my_first_directory
+10-back			    - Changes the working directory to the previous one
