@@ -12,3 +12,4 @@ i-listit 	            - Display the contents list of your current directory
 11-lists		    - Lists all files in the current directory, the parent of the working directory and the /boot directory in long format.
 12-file_type		    - Prints the type of file iamafile in the /tmp/ directory
 13-symbolic_link	    - Create a symbolic link with /bin/ls file
+14-copy_html		    - Updates parent of the working directory with newer html files from the current directory
