@@ -5,3 +5,4 @@ i-listit 	            - Display the contents list of your current directory
 4-listmorefiles		    - Display current directory contents, including hidden files using the long format.
 5-listfilesdigitonly	    - Display current directory contents, including hidden files with user and group IDs displayed numerically
 6-firstdirectory	    - Create a directory in the /tmp/ directory
+7-movethatfile		    - Move file berry from /tmp/ directory to /tmp/my_first_directory/
