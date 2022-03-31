@@ -10,3 +10,4 @@
 9-John_Doe		-  Sets the permission to the file hello as follows: Owner: all the permissions, Group: read and execute permissions, Other users: write and execute permissions\
 10-mirror_permissions	-  Sets the mode of the file hello the same as olleh’s mode\
 11-directories_permissions - Adds execute permission to all subdirectories of the current directory for the owner, the group owner and all other users\
+12-directory_permissions   - Creates a directory called my_dir with permissions 751 in the working directory\
