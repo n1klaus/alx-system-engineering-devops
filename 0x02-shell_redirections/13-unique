@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -c 1 | ls -s
+sort < | uniq -u
