@@ -1,2 +1,2 @@
 #!/bin/bash
-find . ! -type d -exec rm '{}' \;
+find *.js ! -type d -exec rm '{}' \;
