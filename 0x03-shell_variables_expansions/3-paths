@@ -1,2 +1,2 @@
 #!/bin/bash
-printenv PATH | find * -exec 'sed /s//\n/g; /s/:/\n/g' 'wc -l'
+echo $PATH | tr ':' '\n' | wc -l 

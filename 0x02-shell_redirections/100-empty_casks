@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -empty | tr -d "./"
+ls -a1R | find -empty 
