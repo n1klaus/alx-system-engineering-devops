@@ -8,7 +8,7 @@ do
     then
         break
     else
-        echo "Hour $h"
+        echo "Hour: $h"
         while [ $(( m++ )) -lt 60 ]
         do
             if [[ "$m" -eq 60 ]]
