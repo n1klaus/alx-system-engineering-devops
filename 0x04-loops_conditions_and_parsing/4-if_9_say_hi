@@ -5,7 +5,7 @@ while [ $(( n++ )) -lt 10 ]
 do
     if [ "$n" == 9 ]
     then
-        echo 9
+        echo "Hi"
     else
         echo "Best School"
     fi
