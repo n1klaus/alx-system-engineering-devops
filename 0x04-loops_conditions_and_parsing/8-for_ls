@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # This script displays the content of the current directory in a list format
-files=$(/bin/ls)
+files=$(ls)
 for item in $files; do echo "$item" | cut -d- -f2 -s; done
