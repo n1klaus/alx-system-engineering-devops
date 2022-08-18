@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This script loops 20 times, prints "bad luck from China" at 4th iteration,
+#+"bad luck from Japan" at 8th iteration,
+#+"bad luck from Italy" at 17th itration, and numbers for other iterations
+n=0
+while [ $(( n++ )) -lt 20 ]
+do
+    case $n in
+    exit) break ;;
+    4) echo "bad luck from China" ;;
+    9) echo "bad luck from Japan" ;;
+    17) echo "bad luck from Italy" ;;
+    *) echo "$n" ;;
+    esac
+done
