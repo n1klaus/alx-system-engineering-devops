@@ -7,9 +7,9 @@ while [ $(( n++ )) -lt 20 ]
 do
     case $n in
     exit) break ;;
-    4) echo "bad luck from China" ;;
-    9) echo "bad luck from Japan" ;;
-    17) echo "bad luck from Italy" ;;
+    4) echo "$n" ; echo "bad luck from China" ;;
+    9) echo "$n" ; echo "bad luck from Japan" ;;
+    17) echo "$n" ; echo "bad luck from Italy" ;;
     *) echo "$n" ;;
     esac
 done
