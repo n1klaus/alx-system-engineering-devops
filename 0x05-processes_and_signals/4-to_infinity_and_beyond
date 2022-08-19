@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#  This script displays displays "To infinity and beyond" indefinitely
+TIMELIMIT=100
+while [ "$SECONDS" -lt "$TIMELIMIT" ]
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
