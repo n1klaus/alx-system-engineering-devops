@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#  This script displays lines of PID containing the bash word
+# shellcheck disable=SC2009
+processes=$(ps -uxfp $BASHPID)
+echo "$processes"
