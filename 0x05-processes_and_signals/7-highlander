@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#  This script displays displays "To infinity and beyond" indefinitely
+#+ with SIGTERM handling
+_term() { 
+  echo "I am invincible!!!" 
+}
+
+trap _term SIGTERM
+
+TMOUT=100
+while [ "$SECONDS" -lt "$TMOUT" ]
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
