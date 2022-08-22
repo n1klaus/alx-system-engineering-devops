@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script Indefinitely writes 'I am alive!' to the file '/tmp/my_process'
+FILE='/tmp/my_process'
+while true; do echo "I am alive!" >> $FILE; sleep 2; done
