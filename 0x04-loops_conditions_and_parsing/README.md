@@ -9,16 +9,16 @@
 - ***7-clock*** - displays the time for 12 hours and 59 minutes display hours from 0 to 12 and minutes from 1 to 59
 - ***8-for_ls*** -  displays The content of the current directory In a list format Where only the part of the name after the first dash is displayed
 - ***9-to_file_or_not_to_file*** - gives you information about the `school file` and checks if the file exists and prints:
-    > if the file exists: `school file exists`
-    > if the file does not exist: `school file does not exist`
-    > if the file is empty: `school file is empty`
-    > if the file is not empty: `school file is not empty`
-    > if the file is a regular file: `school is a regular file`
+    > if the file exists: `school file exists` \
+    > if the file does not exist: `school file does not exist` \
+    > if the file is empty: `school file is empty` \
+    > if the file is not empty: `school file is not empty` \
+    > if the file is a regular file: `school is a regular file` 
 - ***10-fizzbuzz*** - displays numbers from 1 to 100.
-    > Displays `FizzBuzz` when the number is a multiple of 3 and 5
-    > Displays `Fizz` when the number is multiple of 3
-    > Displays `Buzz` when the number is a multiple of 5
-    > Otherwise, displays the number
+    > Displays `FizzBuzz` when the number is a multiple of 3 and 5 \
+    > Displays `Fizz` when the number is multiple of 3 \
+    > Displays `Buzz` when the number is a multiple of 5 \
+    > Otherwise, displays the number 
 - ***100-read_and_cut*** - displays the content of the file `/etc/passwd`
 and only display `username`, `user id`, `Home directory path for the user`
 - ***101-tell_the_story_of_passwd*** - displays the content of the file `/etc/passwd`, using the while loop + IFS
