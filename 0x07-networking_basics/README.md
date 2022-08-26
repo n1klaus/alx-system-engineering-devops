@@ -1,4 +1,4 @@
-1. ***0-OSI_model*** =>
+#### ***0-OSI_model***
 ``` text
 What is the OSI model?
     1. Set of specifications that network hardware manufacturers must respect
@@ -11,7 +11,7 @@ How is the OSI model organized?
     3. Randomly
 ```
 
-2. ***1-types_of_network*** =>
+#### ***1-types_of_network***
 ``` text
 What type of network a computer in local is connected to?
     1. Internet
@@ -29,7 +29,7 @@ What network do you use when you browse www.google.com from your smartphone (not
     3. LAN
 ```
 
-3. ***2-MAC_and_IP_address*** =>
+#### ***2-MAC_and_IP_address***
 ``` text
 What is a MAC address?
     1. The name of a network interface
@@ -42,7 +42,7 @@ What is an IP address?
     3. Is a number that network devices use to connect to networks
 ```
 
-4. ***3-UDP_and_TCP*** =>
+#### ***3-UDP_and_TCP***
 ``` text
 Which statement is correct for the TCP box:
     1. It is a protocol that is transferring data in a slow way but surely
@@ -57,11 +57,13 @@ Which statement is correct for the TCP worker:
     2. May I increase the rate at which I am sending you boxes?
 ```
 
-5. ***4-TCP_and_UDP_ports*** - bash script that displays listening ports:
+#### ***4-TCP_and_UDP_ports
+ - bash script that displays listening ports:
     >* That only shows listening sockets
     >* That shows the PID and name of the program to which each socket belongs
 
-6. ***5-is_the_host_on_the_network*** - bash script that takes an IP address passed as an argument.
+#### ***5-is_the_host_on_the_network*** 
+- bash script that takes an IP address passed as an argument.
     > Requirements:
         >* Accepts a string as an argument
         >* Displays Usage: 5-is_the_host_on_the_network {IP_ADDRESS} if no argument passed
