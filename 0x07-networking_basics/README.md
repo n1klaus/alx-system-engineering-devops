@@ -57,14 +57,18 @@ Which statement is correct for the TCP worker:
     2. May I increase the rate at which I am sending you boxes?
 ```
 
-#### ***4-TCP_and_UDP_ports
- - bash script that displays listening ports:
-    >* That only shows listening sockets
-    >* That shows the PID and name of the program to which each socket belongs
+#### ***4-TCP_and_UDP_ports***
+``` text
+- bash script that displays listening ports:
+    * That only shows listening sockets
+    * That shows the PID and name of the program to which each socket belongs
+```
 
 #### ***5-is_the_host_on_the_network*** 
+``` text
 - bash script that takes an IP address passed as an argument.
     > Requirements:
-        >* Accepts a string as an argument
-        >* Displays Usage: 5-is_the_host_on_the_network {IP_ADDRESS} if no argument passed
-        >* Ping the IP 5 times
+        * Accepts a string as an argument
+        * Displays Usage: 5-is_the_host_on_the_network {IP_ADDRESS} if no argument passed
+        * Ping the IP 5 times
+```
