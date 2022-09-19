@@ -1,3 +1,3 @@
-***Task 0*** - Simple web stack
-***Task 1*** - Distributed Web Infrastructure
-***Task 2*** - Secured and Monitored Web Infrastructure
+# [Simple web stack](https://ibb.co/Gtq8cSf)
+# [Distributed Web Infrastructure](https://ibb.co/zmyhx1v)
+# [Secured and Monitored Web Infrastructure](https://ibb.co/9Nfn9XX)
