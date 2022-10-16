@@ -1,0 +1,8 @@
+# SSH configuration file for the local SSH client
+#+   to connect without password
+HOST *
+    HostName 3.238.134.119
+    User ubuntu
+    PasswordAuthentication no
+    IdentityFile ~/.ssh/school
+    LogLevel ERROR
