@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Configure 404 Error page
+ERROR_MSG = "<html><head><title></title></head><body>\
+    <h1>'Ceci n'est pas une page'</h1>\
+    </body></html>"
+
+./1-install_nginx_web_server &&\
+    echo "ErrorDocument 404 /error404.html" >> /var/www/html/.htaccess &&\
+    echo $ERROR_MSG > var/www/html/error404.html &&\
+    service nginx restart
