@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Redirect to another page
+REDIRECT_PAGE="Redirect 301 / http://nicknyanjui.tech/"
+./1-install_nginx_web_server &&\
+    sed -i /s/"redirect"/$REDIRECT_PAGE /var/www/html/.htaccess
