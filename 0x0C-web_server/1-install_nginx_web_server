@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Installing nginx web server
+sudo apt-get install nginx -y &&\
+    grep -R default_server /etc/nginx/sites-enabled/ &&\
+    sed s/8080/80 /etc/nginx/sites-available &&\
+    echo "<html><head><title></title></head><body><h1>'Hello World!'</h1>\
+        </body></html>"> var/www/html/index.* &&\
+    service nginx restart
