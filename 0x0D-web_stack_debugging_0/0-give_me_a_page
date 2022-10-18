@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Fix Apache in Docker
+CONTAINERID=$(sudo docker ps | awk '{print $1}' | tail -n 1)
+sudo docker exec -it "$CONTAINERID" /bin/bash -c "service /usr/sbin/apache2 start"
