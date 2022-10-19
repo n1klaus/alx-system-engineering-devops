@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #  Transfers a file from our client to a server using arguments
 #+ file path, server IP, username, SSH private key path as paramaters
-if [ "$#" == 4 ]
+if [ "$#" -ne 4 ]
 then
     scp -o StrictHostKeyChecking=no -i "$4" "$1" "$3@$2":~
 else
