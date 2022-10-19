@@ -1,5 +1,1 @@
-#!/usr/bin/env bash
-# Add DNS entry for domain name
-echo "nicknyanjui.tech"
-cp /etc/hosts hosts && echo "44.200.137.255 nicknyanjui.tech" >> hosts\
-    && cp hosts /etc/hosts && rm hosts
+nicknyanjui.tech
