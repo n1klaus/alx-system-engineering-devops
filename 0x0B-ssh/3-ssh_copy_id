@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-# Add a public key for authorized access to the server from the command line
-cat > test.txt && cat test.txt | ssh -v ubuntu@3.238.134.11901\
-    "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+#  Add a public key for authorized access to the server
+#+ from the command line argument
+echo "$1" | ssh -v ubuntu@54.152.232.208\
+	"mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
