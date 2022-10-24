@@ -1,4 +1,4 @@
-# Installs a Nginx server
+# Installs a Nginx server and configures HTTP response header 
 
 exec { 'install nginx':
   provider => shell,
