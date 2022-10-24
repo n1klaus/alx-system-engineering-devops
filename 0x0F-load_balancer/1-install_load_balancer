@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-#  Provision a second server and configure custom Nginx response header to track
-#+ which web server is answering our HTTP requests
+#  Provision and configure a HAproxy load balancer
 if [ $(/usr/bin/which puppet | echo $?) != 0 ]
 then
 	sudo apt update &&\
@@ -9,4 +8,4 @@ then
 	sudo apt-get install -y ruby-shadow &&\
 	sudo apt-get install -y puppet
 fi
-sudo puppet apply puppet_configure_nginx_web_server
+sudo puppet apply puppet_configure_haproxy_load_balancer
