@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#  Provision a second server and configure custom Nginx response header to track
+#+ which web server is answering our HTTP requests
+
+sudo puppet apply puppet_install_nginx_web_server
+
+sudo sed -i "s/^server*/a\nadd_header X-Served-By $HOSTNAME-web-02;\n /etc/nginx/nginx.conf; sudo service nginx"
