@@ -25,8 +25,6 @@ SERVER_CONFIG=\
 }"
 
 echo -e "$SERVER_CONFIG" | sudo tee /etc/nginx/sites-enabled/default
-#sudo sed -i "/^http*/a\\\tadd_header X-Served-By $HOSTNAME;\n" /etc/nginx/nginx.conf
-#sudo sed -i "/^http*/a\\\tignore_invalid_headers on;\n" /etc/nginx/nginx.conf
 
 if [ "$(pgrep -c nginx)" -le 0 ];
 then
