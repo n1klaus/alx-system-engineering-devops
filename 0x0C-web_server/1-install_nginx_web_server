@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Installing nginx web server
-sudo apt-get update && sudo apt-get install nginx -y &&\
-grep -R default_server /etc/nginx/sites-enabled/ &&\
-sed s/8080/80 /etc/nginx/sites-available &&\
-echo "Hello World!" > var/www/html/index.* &&\
-service nginx restart
+sudo apt-get update && sudo apt-get install nginx ufw -y &&\
+sudo ufw allow ssh && sudo ufw allow "Nginx Full" &&\
+sudo ufw enable &&\
+echo "Hello World!" > var/www/html/index.nginx-debian.html &&\
+sudo service nginx start
