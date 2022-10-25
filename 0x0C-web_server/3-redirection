@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 # Redirect to another page
-apt-get update &&\
-apt-get install nginx -y &&\
-sudo ufw allow 'Nginx HTTP' &&\
-mkdir -p /var/www/html/ &&\
-sudo chmod -R 755 /var/www &&\
-echo 'Hello World!' > /var/www/html/index.html
+sudo apt-get update -y &&\
+sudo apt-get install nginx ufw -y &&\
+sudo ufw allow "ssh" &&\
+sudo ufw allow "Nginx HTTP" &&\
+sudo ufw enable &&\
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+
 SERVER_CONFIG=\
 "server {
 	listen 80 default_server;
@@ -13,18 +14,15 @@ SERVER_CONFIG=\
 	root /var/www/html;
 	index index.html index.htm index.nginx-debian.html;
 	server_name _;
-	location / {
-		try_files \$uri \$uri/ =404;
-	}
-	if (\$request_filename ~ redirect_me){
-		rewrite ^ https://sketchfab.com/bluepeno/models permanent;
-	}
+	rewrite ^/redirect_me https://github.com/n1klaus permanent;
 }"
 
-bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
+echo -e "$SERVER_CONFIG" | sudo tee /etc/nginx/sites-enabled/default
 
-if [ "$(pgrep -c nginx)" -le 0 ]; then
-	service nginx start
+if [ "$(pgrep -c nginx)" -le 0 ];
+then
+	sudo service nginx start
 else
-	service nginx restart
+	sudo service nginx restart
 fi
+exit 0
