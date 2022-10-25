@@ -1,12 +1,37 @@
 #!/usr/bin/env bash
 #  Provision a second server and configure custom Nginx response header to track
 #+ which web server is answering our HTTP requests
-if [ $(/usr/bin/which puppet | echo $?) != 0 ]
+sudo apt-get update -y &&\
+sudo apt-get install nginx ufw -y &&\
+sudo ufw allow "ssh" &&\
+sudo ufw allow "Nginx HTTP" &&\
+sudo ufw enable;
+
+mkdir -p /var/www/html
+echo "Hello World!" | sudo tee /var/www/html/index.html
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+
+SERVER_CONFIG=\
+"server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+	server_name _;
+	rewrite ^/redirect_me https://github.com/n1klaus permanent;
+	error_page 404 /404.html;
+	add_header X-Served-By $HOSTNAME;
+	ignore_invalid_headers on;
+}"
+
+echo -e "$SERVER_CONFIG" | sudo tee /etc/nginx/sites-enabled/default
+#sudo sed -i "/^http*/a\\\tadd_header X-Served-By $HOSTNAME;\n" /etc/nginx/nginx.conf
+#sudo sed -i "/^http*/a\\\tignore_invalid_headers on;\n" /etc/nginx/nginx.conf
+
+if [ "$(pgrep -c nginx)" -le 0 ];
 then
-	sudo apt update &&\
-	sudo apt install ruby &&\
-	sudo apt-get install -y ruby-augeas &&\
-	sudo apt-get install -y ruby-shadow &&\
-	sudo apt-get install -y puppet
+	sudo service nginx start
+else
+	sudo service nginx restart
 fi
-sudo puppet apply puppet_configure_nginx_web_server
+exit 0
