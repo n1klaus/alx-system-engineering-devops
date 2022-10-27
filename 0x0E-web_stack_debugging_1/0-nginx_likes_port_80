@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Debug server and make sure it is listening on port 80
+sudo sed -i --follow-symlinks "s/listen[\w]+[0-9]+/listen 80/" /etc/nginx/sites-enabled/default
+sudo sed -i --follow-symlinks "s/listen[\w]+\[.*/listen [::]:80/" /etc/nginx/sites-enabled/default
