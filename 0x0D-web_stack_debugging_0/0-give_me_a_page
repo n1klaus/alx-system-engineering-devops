@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
 # Fix Apache in Docker
 CONTAINERID=$(sudo docker ps | awk "{print $1}" | tail -n 1)
-sudo docker exec -it "$CONTAINERID" /bin/bash -c "sudo service apache2 restart"
+sudo docker exec -it "$CONTAINERID" \
+	/bin/bash -c "sudo sed -i s/'^[[:space:]]*#ServerName.*$'/'\tServerName localhost'/ \
+		/etc/apache2/sites-enabled/000-default.conf > /dev/null 2>&1; \
+		echo 'ServerName localhost' | sudo tee -a /etc/apache2/apache2.conf > /dev/null 2>&1; \
+		sudo service apache2 restart > /dev/null 2>&1; \
+		sudo service apache2 status"
