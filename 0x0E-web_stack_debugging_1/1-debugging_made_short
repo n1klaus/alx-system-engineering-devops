@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Debug server and make sure it is listening on port 80
+sudo sed -i --follow-symlinks "/server_name/a\
+	\ \tlocation / {\n\t\tproxy_pass http://0.0.0.0:80/;\
+	\n\t\tinclude /etc/nginx/proxy_params;\n\t}" /etc/nginx/sites-enabled/default
