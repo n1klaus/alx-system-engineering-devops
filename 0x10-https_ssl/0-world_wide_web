@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#  Display information on subdomains www, lb-01, web-01 and web-02
+#+ when given a domain as first argument
+
+get_record_type ()
+{
+	SUB_DOMAIN=$1.$2
+	RECORD_TYPE=$(dig "$SUB_DOMAIN" | grep -A1 -i 'ANSWER SECTION' | tail -n1 | awk '{ print $4 }')
+	DESTINATION=$(dig "$SUB_DOMAIN" | grep -A1 -i 'ANSWER SECTION' | tail -n1 | awk '{ print $5 }')
+	echo "The subdomain $1 is a $RECORD_TYPE record and points to $DESTINATION"
+}
+
+if [ $# -eq 1 ]
+then
+	get_record_type www "$1"
+	get_record_type lb-01 "$1"
+	get_record_type web-01 "$1"
+	get_record_type web-02 "$1"
+elif [ $# -eq 2 ]
+then
+	get_record_type "$2" "$1"
+fi
+exit 0
