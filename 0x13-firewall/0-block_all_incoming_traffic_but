@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+sudo apt-get -y update &&\
+sudo apt-install -y ufw &&\
+sudo ufw default deny incoming &&\
+sudo ufw allow in ssh &&\
+sudo ufw allow in http &&\
+sudo ufw allow in https &&\
+sudo enable
