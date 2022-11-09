@@ -2,9 +2,9 @@
 sudo apt-get -y update &&\
 sudo apt-install -y ufw &&\
 sudo ufw default deny incoming &&\
-sudo ufw allow in "22/tcp" &&\
-sudo ufw allow in "80/tcp" &&\
-sudo ufw allow in "443/tcp" &&\
+sudo ufw allow in "22" &&\
+sudo ufw allow in "80" &&\
+sudo ufw allow in "443" &&\
 sudo ufw allow in ssh &&\
 sudo ufw allow in http &&\
 sudo ufw allow in https &&\
