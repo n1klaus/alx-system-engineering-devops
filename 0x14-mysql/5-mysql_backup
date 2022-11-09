@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # Generate a MySQL dump and create a compressed archive of databases
-sudo mysqldump -u root --password="$1" --all-databases > backup.sql | \
-	tar xzvf > "$(date +%d-%m-%Y)".tar.gz
+sudo mysqldump --force --user=root --password="$1" --all-databases \
+	> backup.sql 2> /dev/null | \
+	gzip > "$(date +%d-%m-%Y)".tar.gz
