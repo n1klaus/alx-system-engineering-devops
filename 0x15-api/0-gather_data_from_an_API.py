@@ -9,23 +9,25 @@ url = "https://jsonplaceholder.typicode.com"
 
 
 def fetch_url(id):
+    """ Return information from an API about
+        TODO list progress
+    """
     user_url = f"{url}/users/{id}"
     name = ""
     with requests.get(user_url) as resp:
-        json = resp.json()
-        name = json['name']
+        name = resp.json()['name']
 
     todo_url = f"{url}/todos?userId={id}"
     with requests.get(todo_url) as resp:
         json = resp.json()
-        f = filter(lambda x: True if x['completed'] is True else False, json)
+        fl = filter(lambda x: True if x['completed'] is True else False, json)
         counter = 0
-        titles = "\n"
-        for i in f:
+        titles = ""
+        for item in fl:
             counter += 1
-            titles += f"\t{i['title']}\n"
-        print(f"Employee {name} is done with tasks \
-            ({counter}/{len(json)}): {titles[:-1]}")
+            titles += f"\t{item['title']}\n"
+        print("Employee {0} is done with tasks ({1}/{2}):\n{3}".
+              format(name, counter, len(json), titles[:-1]))
 
 
 if __name__ == "__main__":
