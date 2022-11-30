@@ -21,6 +21,7 @@ def top_ten(subreddit: str):
     """
     endpoint = "/r/{}/top/.json?t=day&limit=10".format(subreddit)
     json_data = ""
+    titles = []
     if len(subreddit) > 0:
         try:
             full_url = "{0}{1}".format(url, endpoint)
@@ -30,11 +31,10 @@ def top_ten(subreddit: str):
             children = json_data.get('data').get('children')
             data = children[0].get('data')
             if data and subreddit == data.get('subreddit'):
-                titles = []
                 for child in children:
                     titles.append(child.get('data').get('title'))
         except BaseException:
-            raise
+            pass
     if titles:
         for title in titles:
             print(title)
