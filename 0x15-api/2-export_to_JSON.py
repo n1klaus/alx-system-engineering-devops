@@ -4,8 +4,8 @@
     returns information about his/her TODO list progress
     and export data in JSON format.
 """
-import requests
 import json
+import requests
 from sys import argv
 
 url = "https://jsonplaceholder.typicode.com"
