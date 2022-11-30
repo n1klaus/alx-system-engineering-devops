@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+# -*- coding: utf-8 -*-
 """
     Queries the Reddit API and prints the titles of the first 10 hot posts
     listed for a given subreddit.
@@ -25,14 +25,14 @@ def top_ten(subreddit: str):
         try:
             full_url = "{0}{1}".format(url, endpoint)
             headers = {"User-Agent": "1-top_ten"}
-            with requests.get(full_url, headers=headers) as resp:
-                json_data = resp.json()
-                children = json_data.get('data').get('children')
-                data = children[0].get('data')
-                if data and subreddit == data.get('subreddit'):
-                    titles = []
-                    for child in children:
-                        titles.append(child.get('data').get('title'))
+            resp = requests.get(full_url, headers=headers)
+            json_data = resp.json()
+            children = json_data.get('data').get('children')
+            data = children[0].get('data')
+            if data and subreddit == data.get('subreddit'):
+                titles = []
+                for child in children:
+                    titles.append(child.get('data').get('title'))
         except BaseException:
             raise
     if titles:
