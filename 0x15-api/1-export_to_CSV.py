@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""  Using REST API, for a given employee ID,
+"""
+    Using REST API, for a given employee ID,
     returns information about his/her TODO list progress
     and export data in CSV format.
 """
@@ -12,26 +13,35 @@ url = "https://jsonplaceholder.typicode.com"
 
 
 def fetch_url(id):
-    """ Export information from an API about
-        `TODO` list progress to csv file
     """
-    user_url = f"{url}/users/{id}"
+    Args:
+        id: id of the user
+    Returns:
+        information from an API about
+        `TODO` list progress for export to csv file
+    """
+    user_url = "{0}/users/{1}".format(url, id)
     username = ""
-    with requests.get(user_url) as resp:
-        username = resp.json()["username"]
+    resp = requests.get(user_url)
+    username = resp.json()["username"]
 
-    todo_url = f"{url}/todos?userId={id}"
-    with requests.get(todo_url) as resp:
-        myList = resp.json()
+    todo_url = "{0}/todos?userId={1}".format(url, id)
+    resp = requests.get(todo_url)
+    myList = resp.json()
 
-        with open(f"{id}.csv", "w", encoding="UTF-8") as f:
-            w = writer(f)
-            for j in myList:
-                newList = []
-                newList.extend(
-                    (str(j['userId']), str(username), str(j['completed']),
-                     str(j['title'])))
-                w.writerow(newList)
+    with open("{}.csv".format(id), "w", encoding="UTF-8") as f:
+        w = writer(f)
+        for j in myList:
+            newList = []
+            newList.extend(
+                          (
+                           "{}".format(j["userId"]),
+                           "{}".format(username),
+                           "{}".format(j["completed"]),
+                           "{}".format(j["title"])
+                          )
+                          )
+            w.writerow(newList)
 
 
 if __name__ == "__main__":

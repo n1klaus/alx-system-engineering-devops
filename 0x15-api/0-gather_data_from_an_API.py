@@ -32,7 +32,7 @@ def fetch_url(id):
         counter += 1
         titles += "\t {}\n".format(item['title'])
     print("Employee {0} is done with tasks({1}/{2}):\n{3}".
-           format(name, counter, len(json), titles[:-1]))
+          format(name, counter, len(json), titles[:-1]))
 
 
 if __name__ == "__main__":
