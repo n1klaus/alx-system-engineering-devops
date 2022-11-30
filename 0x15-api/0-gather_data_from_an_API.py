@@ -31,7 +31,7 @@ def fetch_url(id):
         for item in fl:
             counter += 1
             titles += "\t{}\n".format(item['title'])
-        print("Employee {0} is done with tasks ({1}/{2}):\n{3}".
+        print("Employee {0} is done with tasks({1}/{2}):\n{3}".
               format(name, counter, len(json), titles[:-1]))
 
 
