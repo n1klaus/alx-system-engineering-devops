@@ -32,15 +32,12 @@ def fetch_url(id):
     with open("{}.csv".format(id), "w", encoding="UTF-8") as f:
         w = writer(f)
         for j in myList:
-            newList = []
-            newList.extend(
-                          (
-                           "{}".format(j["userId"]),
-                           "{}".format(username),
-                           "{}".format(j["completed"]),
-                           "{}".format(j["title"])
-                          )
-                          )
+            newList = (
+                       repr(str(j["userId"])),
+                       repr(username),
+                       repr(str(j["completed"])),
+                       repr(j["title"])
+                      )
             w.writerow(newList)
 
 
