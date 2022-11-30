@@ -26,9 +26,9 @@ def number_of_subscribers(subreddit: str):
         try:
             full_url = "{0}{1}".format(url, endpoint)
             headers = {"User-Agent": "0-subs"}
-            with requests.get(full_url, headers=headers) as resp:
-                json_data = resp.json()
-                count = json_data.get('data').get('children')[0].get(
+            resp = requests.get(full_url, headers=headers)
+            json_data = resp.json()
+            count = json_data.get('data').get('children')[0].get(
                     'data').get('subreddit_subscribers')
         except BaseException:
             pass
