@@ -14,7 +14,7 @@ def recurse(subreddit: str, hot_list: list = [], page=None):
     Args:
         subreddit: subreddit
         hot_list: list of titles of hot posts
-        count: iterator for all posts in response
+        page: identifier for the current page to work on
 
     Returns:
         list of titles of the all hot posts if the subreddit is valid,
@@ -28,22 +28,21 @@ def recurse(subreddit: str, hot_list: list = [], page=None):
     if subreddit:
         try:
             full_url = "{0}{1}".format(url, endpoint)
-#            print(full_url)
             headers = {"User-Agent": "2-recurse"}
             resp = requests.get(full_url, headers=headers)
             json_data = resp.json()
-            page = json_data.get('data').get('after')
+            new_page = json_data.get('data').get('after')
             children = json_data.get('data').get('children')
-            if children and subreddit == children[0].get('data').get('subreddit'):
+            if children and subreddit == children[0].get(
+                    'data').get('subreddit'):
                 for child in children:
                     titles.append(child.get('data').get('title'))
-                if page:
-                    new_titles = recurse(subreddit, hot_list, page)
+                hot_list.extend(titles)
+                if new_page:
+                    new_titles = recurse(subreddit, hot_list, new_page)
                     if new_titles:
-                        titles.extend(list(new_titles))
+                        return new_titles
+                return hot_list
         except BaseException:
-            raise
-    if titles:
-        return titles
-    else:
-        return None
+            pass
+    return None
