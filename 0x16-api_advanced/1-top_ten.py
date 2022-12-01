@@ -19,10 +19,10 @@ def top_ten(subreddit: str):
         otherwise None
 
     """
-    endpoint = "/r/{}/top/.json?t=day&limit=10".format(subreddit)
+    endpoint = "/r/{}/hot/.json?limit=10".format(subreddit)
     json_data = ""
     titles = []
-    if len(subreddit) > 0:
+    if subreddit:
         try:
             full_url = "{0}{1}".format(url, endpoint)
             headers = {"User-Agent": "1-top_ten"}
