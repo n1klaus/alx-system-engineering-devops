@@ -79,5 +79,5 @@ def count_words(subreddit: str, word_list: list):
                              key=lambda tup: (tup[1], tup[0])))
         for key, value in result.items():
             print("{0}: {1}".format(key, value))
-        return final_counter
+        return result
     return None
