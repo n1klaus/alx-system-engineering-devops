@@ -72,7 +72,7 @@ def count_words(subreddit: str, word_list: list):
     if word_counter:
         for key, value in word_counter.items():
             if str.lower(key.strip()) in final_counter:
-                value += final_counter[key]
+                value += final_counter[str.lower(key.strip())]
             if value != 0:
                 final_counter[str.lower(key.strip())] = value
         result = dict(sorted(final_counter.items(),
