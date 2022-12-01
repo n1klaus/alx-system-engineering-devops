@@ -9,7 +9,7 @@ import requests
 url = "https://www.reddit.com"
 
 
-def recurse(subreddit: str, hot_list: list = [], count=0):
+def recurse(subreddit: str, hot_list: list = [], page=None):
     """
     Args:
         subreddit: subreddit
@@ -21,28 +21,29 @@ def recurse(subreddit: str, hot_list: list = [], count=0):
         otherwise None
 
     """
-    endpoint = "/r/{}/hot/.json".format(subreddit)
+    next_page = "?after={}".format(page) if page else ""
+    endpoint = "/r/{0}/hot/.json{1}".format(subreddit, next_page)
     json_data = ""
     titles = []
     if subreddit:
         try:
             full_url = "{0}{1}".format(url, endpoint)
+#            print(full_url)
             headers = {"User-Agent": "2-recurse"}
             resp = requests.get(full_url, headers=headers)
             json_data = resp.json()
+            page = json_data.get('data').get('after')
             children = json_data.get('data').get('children')
-            data = children[count].get('data')
-            if data and subreddit == data.get('subreddit'):
-                titles.extend(children[count].get('data').get('title'))
-                count += 1
-                if children[count]:
-                    new_titles = recurse(subreddit, hot_list, count)
+            if children and subreddit == children[0].get('data').get('subreddit'):
+                for child in children:
+                    titles.append(child.get('data').get('title'))
+                if page:
+                    new_titles = recurse(subreddit, hot_list, page)
                     if new_titles:
-                        titles.extend(new_titles)
+                        titles.extend(list(new_titles))
         except BaseException:
-            pass
-    if titles and titles not in hot_list:
-        hot_list.extend(titles)
-        return hot_list
+            raise
+    if titles:
+        return titles
     else:
         return None
