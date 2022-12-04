@@ -12,12 +12,12 @@ package { 'nscd':
 exec { 'start nscd':
     provider => shell,
     command  => '/etc/init.d/nscd start; /usr/sbin/nscd -i hosts',
-    require  => Package['nscd'],
+    require  => PACKAGE['nscd'],
 }
 
 exec { 'start resolvconf':
     provider => shell,
-    command  => '/usr/sbin/service resolvconf restart;/usr/sbin/service resolvconf enable-updates',
+    command  => '/usr/sbin/service resolvconf restart; /usr/sbin/service resolvconf enable-updates',
     onlyif   => '/usr/bin/which resolvconf',
 }
 
@@ -34,7 +34,7 @@ package { 'apache2-suexec-custom':
 exec { 'enable suexec':
     provider => shell,
     command  => '/usr/sbin/a2enmod suexec',
-    require  => Package['libapache2-mod-fcgid', 'apache2-suexec-custom'],
+    require  => PACKAGE['libapache2-mod-fcgid', 'apache2-suexec-custom'],
 }
 
 exec { 'start mysql':
