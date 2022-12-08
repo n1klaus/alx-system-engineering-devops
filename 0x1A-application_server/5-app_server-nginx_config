@@ -5,7 +5,7 @@ server {
 
         location = / {
                 include proxy_params;
-                proxy_pass http://0.0.0.0:5003;
+                proxy_pass http://0.0.0.0:5003/2-hbnb;
         }
 
         location ~ /assets/(images/scripts/styles)/(.*) {
