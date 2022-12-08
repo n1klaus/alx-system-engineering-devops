@@ -1,0 +1,15 @@
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server ipv6only=on;
+        server_name _;
+
+        location /airbnb-onepage {
+                include proxy_params;
+                proxy_pass http://0.0.0.0:5000;
+        }
+
+        location ~ /airbnb-dynamic/number_odd_or_even/(.*) {
+                include proxy_params;
+                proxy_pass http://0.0.0.0:5001/number_odd_or_even/$1;
+        }
+}
